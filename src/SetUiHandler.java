@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class SetUiHandler {
     public void call() {
         System.out.println("1. isEmpty");
@@ -10,4 +13,6 @@ public class SetUiHandler {
         System.out.println("8. goToMainMenu");
         return;
     }
+    private final HashSet set = new HashSet();
+
 }
