@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ListUiHandler {
     private final List list = new ArrayList();
-    static Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
 
     public void call() {
         while (true) {

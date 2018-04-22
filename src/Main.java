@@ -17,10 +17,10 @@ public class Main {
                     new ListUiHandler().call();
                     break;
                 case 2:
-                    new DequeUiHandler().call();
+                    new SetUiHandler().call();
                     break;
                 case 3:
-                    new SetUiHandler().call();
+                    new DequeUiHandler().call();
                     break;
                 case 4:
                     new MapUiHandler().call();
