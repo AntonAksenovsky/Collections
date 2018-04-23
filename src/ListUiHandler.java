@@ -2,14 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-<<<<<<< HEAD
-public class ListUiHandler {
-    private final List list = new ArrayList();
-    private static Scanner in = new Scanner(System.in);
-=======
 public class ListUiHandler implements UiHandler {
     private final Scanner in = new Scanner(System.in);
->>>>>>> e06e2f213c2142d986de58b287206d500b2c5a75
 
     public void call() {
         List list = new ArrayList();
@@ -30,20 +24,14 @@ public class ListUiHandler implements UiHandler {
                     list.add(in.next());
                     break;
                 case 4:
-                    System.out.println("Введите номер элемента и сам элемент, который вы хотите добавить");
-                    try {
-                        list.add(in.nextInt(), in.next());
-                    } catch (IndexOutOfBoundsException e) {
-                        System.out.println("list.add() == " + e);
-                    }
+                    add(list);
                     break;
                 case 5:
                     System.out.println("Введите элемент, который хотите удалить");
                     list.remove(in.next());
                     break;
                 case 6:
-                    System.out.println("Введите позицию элемента, для удаления его");
-                    list.remove(in.nextInt());
+                    remove(list);
                     break;
                 case 7:
                     System.out.println("Список всех элементов:" + list);
@@ -63,6 +51,24 @@ public class ListUiHandler implements UiHandler {
         System.out.println("6. removeByIndex");
         System.out.println("7. showItems");
         System.out.println("8. goToMainMenu");
+    }
+
+    private void add(List list) {
+        System.out.println("Введите номер элемента и сам элемент, который вы хотите добавить");
+        try {
+            list.add(in.nextInt(), in.next());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("list.add() == " + e);
+        }
+    }
+
+    private void remove(List list) {
+        System.out.println("Введите позицию элемента, для удаления его");
+        try {
+            list.remove(in.nextInt());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("list.remove() == " + e);
+        }
     }
 
 

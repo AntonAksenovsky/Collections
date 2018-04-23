@@ -24,34 +24,13 @@ public class Main {
         System.out.println("2. Set");
         System.out.println("3. Deque");
         System.out.println("4. Map");
+        System.out.println("5. Exit");
     }
-<<<<<<< HEAD
-    static Scanner in = new Scanner(System.in);
-    public static void main(String[] args) {
-        while (true) {
-            showUi();
-            switch (in.nextInt()) {
-                case 1:
-                    new ListUiHandler().call();
-                    break;
-                case 2:
-                    new SetUiHandler().call();
-                    break;
-                case 3:
-                    new DequeUiHandler().call();
-                    break;
-                case 4:
-                    new MapUiHandler().call();
-                    break;
-                default:
-                    return;
-            }
-=======
 
     private UiHandler getHandler() {
         switch (in.nextInt()) {
             case 1:
-                return listUiHandler;
+                return  listUiHandler;
 
             case 2:
                 return setUiHandler;
@@ -64,7 +43,6 @@ public class Main {
 
             default:
                 return new FinalUiHandler();
->>>>>>> e06e2f213c2142d986de58b287206d500b2c5a75
         }
     }
 }
