@@ -30,7 +30,7 @@ public class Main {
     private UiHandler getHandler() {
         switch (in.nextInt()) {
             case 1:
-                return  listUiHandler;
+                return listUiHandler;
 
             case 2:
                 return setUiHandler;
