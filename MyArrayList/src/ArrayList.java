@@ -1,4 +1,5 @@
 public class ArrayList implements List {
+    private static final int NOT_FOUND = -1;
     public Object[] array;
     private int size = 0;
 
@@ -30,15 +31,9 @@ public class ArrayList implements List {
     public void add(int index, Object item) {
         checkForRange(index);
         growAsNeeded();
-        shiftItems(index);
+        shiftItemsToRight(index);
         array[index] = item;
         size++;
-    }
-
-    private void shiftItems(int index) {
-        for (int i = size; i > index; i--) {
-            array[i] = array[i - 1];
-        }
     }
 
     private void checkForRange(int index) {
@@ -58,12 +53,16 @@ public class ArrayList implements List {
         }
     }
 
+    private void shiftItemsToRight(int index) {
+        for (int i = size; i > index; i--) {
+            array[i] = array[i - 1];
+        }
+    }
+
     @Override
     public Object get(int index) {
-        if ((index < size) && (index >= 0)) {
-            return array[index];
-        }
-        return null;
+        checkForRange(index);
+        return array[index];
     }
 
     @Override
@@ -74,12 +73,12 @@ public class ArrayList implements List {
 
     @Override
     public int indexOf(Object obj) {
-        for (int i = 0; i <= size; i++) {
+        for (int i = 0; i < size; i++) {
             if (obj.equals(array[i])) {
                 return i;
             }
         }
-        return -1;
+        return NOT_FOUND;
     }
 
     @Override
@@ -89,24 +88,30 @@ public class ArrayList implements List {
                 return i;
             }
         }
-        return -1;
+        return NOT_FOUND;
     }
 
     @Override
     public void remove(int index) {
-        for (int i = index; i <= size; i++) {
+        checkForRange(index);
+        shiftItemsToLeft(index);
+        array[--size] = null;
+    }
+
+    private void shiftItemsToLeft(int index) {
+        for (int i = index; i < size - 1; i++) {
             array[i] = array[i + 1];
-            array[size--] = null;
         }
     }
 
     @Override
-    public void remove(Object item) {
-        for (int i = 0; i <= size; i++) {
-            if (item.equals(array[i])) {
-                array[i] = array[i + 1];
-                array[size--] = null;
-            }
+    public boolean remove(Object item) {
+        int index = indexOf(item);
+        if (index == NOT_FOUND) {
+            return false;
+        } else {
+            remove(index);
+            return true;
         }
     }
 
@@ -121,9 +126,8 @@ public class ArrayList implements List {
     }
 
     private void checkForRange(int from, int to) {
-        if ((from > to) || (from < 0) || (to > size)) {
+        if ((from > to) || (from < 0) || (to >= size)) {
             throw new IndexOutOfBoundsException();
         }
     }
-
 }
