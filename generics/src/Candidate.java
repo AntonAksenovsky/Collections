@@ -1,7 +1,7 @@
 public enum Candidate {
     FIRST("Пушкин Вася Сергеевич"),
-    SECOND("Петя"),
-    THIRD("Саша");
+    SECOND("Путин Петя Николаевич"),
+    THIRD("Ромашкин Саша Алексеевич");
 
     private final String fio;
 

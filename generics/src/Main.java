@@ -35,9 +35,9 @@ class Main {
     }
 
     private void showMenu() {
-        System.out.println("1 – Проголосовать");
-        System.out.println("2 – Вывести статистику");
-        System.out.println("3 – Выход");
+        System.out.println("1 - Проголосовать");
+        System.out.println("2 - Вывести статистику");
+        System.out.println("3 - Выход");
     }
 
     public static void main(String args[]) {

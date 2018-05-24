@@ -2,7 +2,7 @@ public enum AgeCategory {
     YOUNG(18, 29),
     ADULT(30, 49),
     OLD(50, 64),
-    PENSIONER(65, 100);
+    PENSIONER(65, 200);
 
     private int left;
     private int right;

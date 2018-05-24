@@ -69,9 +69,9 @@ public class StatisticsUiHandler {
                 }
             }
             System.out.println(entry.getKey().getFio());
-            System.out.println("проголосовало young: " + youngCount);
-            System.out.println("проголосовало adult: " + adultCount);
-            System.out.println("проголосовало old: " + oldCount);
+            System.out.println("проголосовало young:     " + youngCount);
+            System.out.println("проголосовало adult:     " + adultCount);
+            System.out.println("проголосовало old:       " + oldCount);
             System.out.println("проголосовало pensioner: " + pensionerCount);
             System.out.println();
         }
